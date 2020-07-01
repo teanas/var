@@ -1,0 +1,13 @@
+#Connect to the EC2 instance
+ssh -i cassandraAWSBenchmark.pem ec2-user@
+
+#Install Docker
+sudo yum update -y
+sudo yum install docker
+sudo service docker start
+
+#Start container with 4.2.7 on 8000
+sudo docker run --name mongo4.2 --cpus=1 -p 8000:27017 mongo:4.2.7
+
+#Start container with 4.0.18 on 9000
+sudo docker run --name mongo4.0 --cpus=1 -p 9000:27017 mongo:4.0.18

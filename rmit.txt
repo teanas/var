@@ -1,0 +1,33 @@
+#Connect to the EC2 instance
+ssh -i cassandraAWSBenchmark.pem ec2-user@
+
+#Download and unzip 4.2.7 
+wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-amazon-4.2.7.tgz
+tar -zxvf mongodb-linux-x86_64-amazon-4.2.7.tgz
+rm mongodb-linux-x86_64-amazon-4.2.7.tgz
+cd mongodb-linux-x86_64-amazon-4.2.7
+sudo cp /bin/* /usr/bin/
+sudo mkdir -p /var/lib/mongo
+sudo mkdir -p /var/log/mongodb
+sudo chown `whoami` /var/lib/mongo
+sudo chown `whoami` /var/log/mongodb 
+
+#Go to the root folder
+cd
+
+#Download and unzip 4.0.18
+wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-amazon-4.0.18.tgz
+tar -zxvf mongodb-linux-x86_64-amazon-4.0.18.tgz
+rm mongodb-linux-x86_64-amazon-4.0.18.tgz
+cd mongodb-linux-x86_64-amazon-4.0.18
+sudo cp /bin/* /usr/bin/
+sudo mkdir -p /var/lib0/mongo
+sudo mkdir -p /var/log0/mongodb
+sudo chown `whoami` /var/lib0/mongo
+sudo chown `whoami` /var/log0/mongodb 
+
+#Start 4.2.7 on 27017 
+sudo ./bin/mongod --dbpath /var/lib/mongo --bind_ip 0.0.0.0 --port 27017
+
+#Start 4.0.18 on 28018
+sudo ./bin/mongod --dbpath /var/lib0/mongo --bind_ip 0.0.0.0 --port 28018 

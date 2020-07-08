@@ -9,8 +9,8 @@ public class Ben {
 		
 		String ip = "3.89.231.29"; //ip of the instance with databases
 		String rec = "50000";  
-		String op ="4000000";  //8000000 rmit 4000000 duet
-		String thr = "3";  //10 rmit 3 duet
+		String op ="4000000";  //10000000 rmit 4000000 duet
+		String thr = "5";  //14 rmit 5 duet
 		
 		//Depending on which approach is wanted, the undesired one should be commented out
 		//rmit(ip, rec, op, thr);
